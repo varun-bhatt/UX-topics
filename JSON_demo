@@ -1,0 +1,58 @@
+JSON Example
+{"employees":[
+    { "firstName":"John", "lastName":"Doe" },
+    { "firstName":"Anna", "lastName":"Smith" },
+    { "firstName":"Peter", "lastName":"Jones" }
+]}
+
+
+XML Example
+<employees>
+    <employee>
+        <firstName>John</firstName> <lastName>Doe</lastName>
+    </employee>
+    <employee>
+        <firstName>Anna</firstName> <lastName>Smith</lastName>
+    </employee>
+    <employee>
+        <firstName>Peter</firstName> <lastName>Jones</lastName>
+    </employee>
+</employees>
+
+
+
+
+//How to parse data from server in JSON format using XMLHttpRequest().
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Use the XMLHttpRequest to get the content of a file.</h2>
+<p>The content is written in JSON format, and can easily be converted into a JavaScript object.</p>
+
+<p id="demo"></p>
+
+<script>
+
+var xmlhttp = new XMLHttpRequest();                // line in the example creates an XMLHttpRequest object.
+xmlhttp.onreadystatechange = function() 		//The readyState property holds the status of the XMLHttpRequest.
+{							//The onreadystatechange event is triggered every time the readyState changes.
+    if (this.readyState == 4 && this.status == 200) 
+    {
+        myObj = JSON.parse(this.responseText);
+        document.getElementById("demo").innerHTML = myObj.name;
+    }
+};
+xmlhttp.open("GET", "json_demo.txt", true);
+xmlhttp.send();
+
+</script>
+
+<p>Take a look at <a href="json_demo.txt" target="_blank">json_demo.txt</a></p>
+
+</body>
+</html>

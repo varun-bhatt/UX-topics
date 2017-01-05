@@ -1,0 +1,10 @@
+/* This will change the font color as well as background color. */
+
+$primary-color:red;
+h2 {
+    color: $primary-color;
+}
+
+p {
+    color: $primary-color;
+}
